@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; // Asegúrate de importar el Router
 
 @Component({
   selector: 'login',
@@ -15,13 +16,14 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.authService.login(this.loginData).subscribe({
       next: (response) => {
         const jsonResponse = JSON.parse(JSON.stringify(response));
         this.authService.setToken(jsonResponse.token);
+        this.router.navigate(['/dashboard']);
       },
       error: (error) => {
         console.error('Error en la solicitud:', error);
