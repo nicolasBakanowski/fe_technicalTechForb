@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router'; // Asegúrate de importar el Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
