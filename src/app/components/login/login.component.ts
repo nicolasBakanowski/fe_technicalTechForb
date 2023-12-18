@@ -20,7 +20,8 @@ export class LoginComponent {
   onSubmit() {
     this.authService.login(this.loginData).subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor:', response);
+        const jsonResponse = JSON.parse(JSON.stringify(response));
+        this.authService.setToken(jsonResponse.token);
       },
       error: (error) => {
         console.error('Error en la solicitud:', error);
