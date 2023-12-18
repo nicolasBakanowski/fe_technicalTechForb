@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="input-container name">
+      <label for="numberDocument">Número de Documento:</label>
+      <input
+        type="text"
+        id="numberDocument"
+        name="numberDocument"
+        [(ngModel)]="loginData.numberDocument"
+        required
+      />
+    </div>
+    <div>
+      <label for="password">Contraseña:</label>
+      <div class="input-container name">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="loginData.password"
+          required
+        />
+      </div>
+    </div>
+    <button type="submit">Iniciar sesión</button>
+  </form>
+</div>
