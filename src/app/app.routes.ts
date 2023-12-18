@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-// Define tus rutas
 export const routes: Routes = [
-  { path: '', component: LoginComponent }, // Ruta por defecto, muestra AppComponent
+  { path: '', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
 ];
