@@ -1,9 +1,10 @@
-import { Injectable, Inject, inject } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivateFn,
   RouterStateSnapshot,
 } from '@angular/router';
+import { TokenService } from '../services/token/token.service';
 
 @Injectable({ providedIn: 'root' })
 class LoggedGuard {
@@ -11,7 +12,8 @@ class LoggedGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    return true;
+    const token = new TokenService();
+    return token.isTokenPresent();
   }
 }
 export const IsLoggedGuad: CanActivateFn = (
