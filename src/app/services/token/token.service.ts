@@ -1,14 +1,25 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TokenService {
+  private tokenSubject = new BehaviorSubject<string | null>(null);
+  token$ = this.tokenSubject.asObservable();
+
   constructor() {}
 
   isTokenPresent(): boolean {
     const token = localStorage.getItem('token');
     return !!token;
+  }
+  setToken(token: string | null) {
+    this.tokenSubject.next(token);
+    token && localStorage.setItem('token', token);
+  }
+  getToken(): string | null {
+    return this.tokenSubject.value;
   }
   deleteTokenFromStorage(): void {
     localStorage.removeItem('token');

@@ -16,8 +16,7 @@ export class MenuService {
   getMenuOptions() {
     const endpoint = 'menu/getAll';
     const apiUrl = this.apiConfig.getApiUrl(endpoint);
-    const headers = this.authService.addTokenToHeaders(new HttpHeaders());
-    console.log(headers, 'adalsda');
+    const headers = this.authService.getAuthorizationHeader();
     return this.http.get<any[]>(apiUrl, { headers });
   }
 }

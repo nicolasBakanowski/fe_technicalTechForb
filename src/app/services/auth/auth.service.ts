@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiConfigurationService } from '../apiConfigurations/apiConfiguration.service';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { AuthCreateUser } from './auth.interface';
+import { TokenService } from '../token/token.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private tokenSubject = new BehaviorSubject<string | null>(null);
-  token$ = this.tokenSubject.asObservable();
-
   constructor(
     private http: HttpClient,
-    private apiConfig: ApiConfigurationService
+    private apiConfig: ApiConfigurationService,
+    private tokenService: TokenService,
+    private router: Router
   ) {}
 
   login(credentials: { numberDocument: string; password: string }) {
@@ -20,20 +22,17 @@ export class AuthService {
     const apiUrl = this.apiConfig.getApiUrl(endpoint);
     return this.http.post(apiUrl, credentials);
   }
-
-  setToken(token: string | null) {
-    this.tokenSubject.next(token);
-    token && localStorage.setItem('token', token);
+  register(userData: AuthCreateUser): Observable<any> {
+    const endpoint = 'users/create';
+    const apiUrl = this.apiConfig.getApiUrl(endpoint);
+    return this.http.post(apiUrl, userData);
   }
-  getToken(): string | null {
-    return this.tokenSubject.value;
-  }
-  addTokenToHeaders(headers: HttpHeaders): HttpHeaders {
-    const token = this.getToken();
-
-    if (token) {
-      return headers.set('Authorization', `Bearer ${token}`);
-    }
-    return headers;
+  getAuthorizationHeader(): HttpHeaders {
+    const token = this.tokenService.getToken();
+    token
+      ? new HttpHeaders().set('Authorization', `Bearer ${token}`)
+      : this.router.navigate(['/login']);
+    return new HttpHeaders();
+    return new HttpHeaders();
   }
 }
