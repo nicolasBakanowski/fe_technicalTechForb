@@ -25,7 +25,6 @@ export class TokenService {
     token && localStorage.setItem('token', token);
   }
   getToken(): string | null {
-    console.log('este el token:', this.tokenSubject.value);
     return this.tokenSubject.value;
   }
   deleteTokenFromStorage(): void {
