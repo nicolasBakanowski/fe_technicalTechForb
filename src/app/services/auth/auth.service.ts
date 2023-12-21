@@ -27,12 +27,12 @@ export class AuthService {
     const apiUrl = this.apiConfig.getApiUrl(endpoint);
     return this.http.post(apiUrl, userData);
   }
-  getAuthorizationHeader(): HttpHeaders {
+
+  addTokenToHeaders(headers: HttpHeaders): HttpHeaders {
     const token = this.tokenService.getToken();
-    token
-      ? new HttpHeaders().set('Authorization', `Bearer ${token}`)
-      : this.router.navigate(['/login']);
-    return new HttpHeaders();
-    return new HttpHeaders();
+
+    return token
+      ? headers.set('Authorization', `Bearer ${token}`)
+      : (this.router.navigate(['/']), headers);
   }
 }

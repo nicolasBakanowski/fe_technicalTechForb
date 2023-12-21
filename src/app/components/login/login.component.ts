@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
+import { TokenService } from '../../services/token/token.service';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -16,13 +16,17 @@ export class LoginComponent {
     password: '',
   };
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private tokenService: TokenService,
+    private router: Router
+  ) {}
 
   onSubmit() {
     this.authService.login(this.loginData).subscribe({
       next: (response) => {
         const jsonResponse = JSON.parse(JSON.stringify(response));
-        this.authService.setToken(jsonResponse.token);
+        this.tokenService.setToken(jsonResponse.token);
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {

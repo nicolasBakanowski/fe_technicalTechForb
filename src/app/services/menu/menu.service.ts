@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ApiConfigurationService } from '../apiConfigurations/apiConfiguration.service';
 import { AuthService } from '../auth/auth.service';
 
@@ -16,7 +16,7 @@ export class MenuService {
   getMenuOptions() {
     const endpoint = 'menu/getAll';
     const apiUrl = this.apiConfig.getApiUrl(endpoint);
-    const headers = this.authService.getAuthorizationHeader();
+    const headers = this.authService.addTokenToHeaders(new HttpHeaders());
     return this.http.get<any[]>(apiUrl, { headers });
   }
 }
