@@ -1,1 +1,4 @@
-<p>menu works!</p>
+<div *ngFor="let option of menuOptions">
+  <div>ID: {{ option.id }}</div>
+  <div>Nombre de la opción: {{ option.optionName }}</div>
+</div>
