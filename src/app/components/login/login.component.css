@@ -40,13 +40,6 @@
   display: flex;
 }
 
-.icon {
-  padding: 4px;
-  color: #666;
-  min-width: 30px;
-  text-align: center;
-}
-
 .input-document,
 .input-password {
   width: calc(100% - 20px);
@@ -65,6 +58,7 @@ input[type="password"] {
   background: none;
   font-size: 16px;
   padding: 4px 0;
+  padding-left: 15px;
   outline: none;
 }
 
