@@ -8,12 +8,7 @@ a {
   display: block;
 }
 
-.login-title {
-  text-align: center;
-  color: whitesmoke;
-}
-
-#login-page {
+#index-page {
   display: flex;
   flex-wrap: wrap;
 }
@@ -39,79 +34,6 @@ a {
   margin-top: 25px;
   text-align: center;
   color: white;
-}
-
-.form-login {
-  padding-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  align-content: center;
-}
-
-.form-login label {
-  text-align: left;
-  font-size: 13px;
-  margin-top: 10px;
-  margin-left: 20px;
-  display: block;
-  color: #666;
-}
-
-.input-password {
-  width: 100%;
-  background: #ededed;
-  border-radius: 25px;
-  margin: 4px 0 10px 0;
-  padding: 10px;
-  display: flex;
-}
-
-.icon {
-  padding: 4px;
-  color: #666;
-  min-width: 30px;
-  text-align: center;
-}
-
-.input-document,
-.input-password {
-  width: calc(100% - 20px);
-  background: #ededed;
-  border-radius: 25px;
-  margin: 4px 0 10px 0;
-  padding: 10px;
-  display: flex;
-  margin-left: 10px;
-}
-
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 4px 0;
-  outline: none;
-}
-
-button[type="submit"] {
-  width: 100%;
-  border: 0;
-  border-radius: 25px;
-  padding: 14px;
-  background: #008552;
-  color: #fff;
-  display: inline-block;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 10px;
-  transition: ease all 0.3s;
-}
-
-button[type="submit"]:hover {
-  opacity: 0.9;
 }
 
 .background {
@@ -170,12 +92,13 @@ button[type="submit"]:hover {
 
 .background-login {
   background: linear-gradient(rgb(4, 0, 20), rgb(8, 1, 41));
+  max-width: max-content;
 }
 
 @media only screen and (max-width: 768px) {
   .login {
     width: 100%;
-    padding: 20%;
+    height: max-content;
   }
 
   .background {
