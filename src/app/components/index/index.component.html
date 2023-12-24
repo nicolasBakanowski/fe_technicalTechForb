@@ -3,6 +3,19 @@
     <h1>Donec in dapibus augue sed nisi nunc suscipit eget enim sit amet</h1>
   </div>
   <div class="login background-login">
-    <login></login>
+    <ng-container *ngIf="formView; else chageForm">
+      <login></login>
+      <p class="notice">
+        ¿No tienes una cuenta?
+        <a (click)="InLogin()">Regístrate</a>
+      </p>
+    </ng-container>
+    <ng-template #chageForm>
+      <register></register>
+      <p class="notice">
+        ¿Ya tienes una cuenta?
+        <a (click)="InRegister()">Inicia sesión</a>
+      </p>
+    </ng-template>
   </div>
 </div>
