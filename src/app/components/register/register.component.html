@@ -1,0 +1,52 @@
+<h2 class="login-title">Registro</h2>
+<p class="notice">Por favor, complete el formulario de registro</p>
+<form (ngSubmit)="onSubmit()" class="form-login">
+  <label for="name">Nombre:</label>
+
+  <div class="input-password">
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Nombre"
+      [(ngModel)]="registrationData.name"
+      required
+    />
+  </div>
+  <label for="lastName">Apellido:</label>
+
+  <div class="input-password">
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      placeholder="Apellido"
+      [(ngModel)]="registrationData.lastName"
+      required
+    />
+  </div>
+  <label for="numberDocument">Número de Documento:</label>
+  <div class="input-password">
+    <input
+      type="text"
+      id="numberDocument"
+      name="numberDocument"
+      placeholder="Numero de Documento"
+      [(ngModel)]="registrationData.numberDocument"
+      required
+    />
+  </div>
+
+  <label for="password">Contraseña:</label>
+  <div class="input-password">
+    <input
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Contraseña"
+      [(ngModel)]="registrationData.password"
+      required
+    />
+  </div>
+  <button type="submit"><i class="fas fa-user-plus"></i> Registrarse</button>
+</form>

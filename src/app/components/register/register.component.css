@@ -1,0 +1,73 @@
+.notice {
+  font-size: 15px;
+  text-align: center;
+  color: white;
+}
+
+.login {
+  width: 35%;
+  height: 100vh;
+  background: #fff;
+  padding: 70px;
+}
+
+.login-title {
+  text-align: center;
+  color: whitesmoke;
+}
+
+.form-login {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.form-login label {
+  text-align: left;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-left: 20px;
+  display: block;
+  color: #666;
+}
+
+.input-password {
+  width: 100%;
+  background: #ededed;
+  border-radius: 25px;
+  margin: 4px 0 10px 0;
+  padding: 10px;
+  display: flex;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 4px 0;
+  outline: none;
+  padding-left: 15px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  border: 0;
+  border-radius: 25px;
+  padding: 14px;
+  background: #008552;
+  color: #fff;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: ease all 0.3s;
+}
+
+button[type="submit"]:hover {
+  opacity: 0.9;
+}
