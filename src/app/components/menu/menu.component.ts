@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MenuService } from '../../services/menu/menu.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent implements OnInit {
   menuOptions: any[] = [];
+  @Output() optionClicked = new EventEmitter<any>();
 
   constructor(private menuService: MenuService) {}
 
@@ -27,5 +28,8 @@ export class MenuComponent implements OnInit {
         console.error('Error en la solicitud:', error);
       },
     });
+  }
+  onOptionClicked(optionId: any) {
+    this.optionClicked.emit(optionId);
   }
 }

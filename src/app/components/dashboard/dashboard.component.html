@@ -1,2 +1,6 @@
 <p>dashboard works!</p>
-<app-menu></app-menu>
+<app-menu (optionClicked)="onOptionClicked($event)"></app-menu>
+
+<div *ngIf="selectedOptionId !== undefined">
+  Elemento de prueba seleccionado con ID: {{ selectedOptionId }}
+</div>

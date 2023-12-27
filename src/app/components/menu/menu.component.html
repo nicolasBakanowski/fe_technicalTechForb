@@ -1,4 +1,4 @@
-<div *ngFor="let option of menuOptions">
+<div *ngFor="let option of menuOptions" (click)="onOptionClicked(option.id)">
   <div>ID: {{ option.id }}</div>
   <div>Nombre de la opción: {{ option.optionName }}</div>
 </div>
